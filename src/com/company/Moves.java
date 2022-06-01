@@ -54,13 +54,19 @@ public class Moves  extends Matrix{
             temporary = countSumRows();
             if (temporary==3 || temporary==-3){sum=temporary;}
 
+            if (sum==3){
+                System.out.println("First player won!");
+            }
+            else if (sum==-3){
+                System.out.println("Second player won!");
+            }
+
+            else if (emptyFieldChecker()==false){
+                sum=5;
+                System.out.println("Draw!");
+            }
+
         }while(sum==0);
-        if (sum==3){
-            System.out.println("First player won!");
-        }
-        if (sum==-3){
-            System.out.println("Second player won!");
-        }
 
 
     }

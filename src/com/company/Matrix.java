@@ -179,6 +179,17 @@ public class Matrix{
          return false;
     }
 
+    public boolean emptyFieldChecker(){
+        for (int i=0; i<3; i++){
+            for (int j=0; j<3; j++){
+                if (numberArray[i][j]==0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
 
 }

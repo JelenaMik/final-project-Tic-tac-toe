@@ -43,7 +43,7 @@ public class Moves  extends Matrix{
 
             setValue(n);
             matrixMovesOutput();
-            matrixZeroOutput();
+           // matrixZeroOutput();
 
             temporary = countSumMainDiagonal();
             if (temporary==3 || temporary==-3){sum=temporary;}

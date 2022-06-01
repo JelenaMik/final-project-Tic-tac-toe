@@ -24,8 +24,8 @@ public class Matrix{
 
     // print 1-9 matrix
     public void matrixNineOutput(){
-        for (int i=0; i<3; ++i){
-            for (int j=0; j<3; ++j){
+        for (int i=0; i<3; i++){
+            for (int j=0; j<3; j++){
                 System.out.print(numberMovesArray[i][j] + " ");
             }
             System.out.println();
@@ -34,8 +34,8 @@ public class Matrix{
 
     //generates matrix to work with
     public void matrixZeroGeneration(){
-        for (int i=0; i<3; ++i){
-            for (int j=0; j<3; ++j){
+        for (int i=0; i<3; i++){
+            for (int j=0; j<3; j++){
                 numberArray[i][j]=0;
             }
         }
@@ -43,9 +43,9 @@ public class Matrix{
 
     //method for Zero matrix output
     public void matrixZeroOutput(){
-        for (int i=0; i<3; ++i){
-            for (int j=0; j<3; ++j){
-                System.out.print(numberArray[i][j]);
+        for (int i=0; i<3; i++){
+            for (int j=0; j<3; j++){
+                System.out.print(numberArray[i][j] + "  ");
             }
             System.out.println();
         }
@@ -61,7 +61,7 @@ public class Matrix{
                 }if(numberArray[i][j]==1){
                     System.out.print("x ");
                 }if (numberArray[i][j]==(-1)){
-                    System.out.println("o ");
+                    System.out.print("o ");
                 }
             }
             System.out.println();
@@ -170,10 +170,10 @@ public class Matrix{
             if(field<4 && numberArray[0][field-1]==0){
                 return true;
             }
-            else if (4<field && field<7 && numberArray[1][field-4]==0){
+            else if (4<=field && field<7 && numberArray[1][field-4]==0){
                 return true;
             }
-            else if(field>7 && numberArray[2][field-7]==0){
+            else if(field<10 && field>=7 && numberArray[2][field-7]==0){
                 return true;
             }
          return false;

@@ -11,8 +11,10 @@ public class Main {
         System.out.println();
 
         Matrix matrix = new Matrix();
-        matrix.matrixNineOutput();
+        matrix.matrixMovesOutput();
         matrix.matrixZeroGeneration();
+
+        System.out.println();
 
         Moves move = new Moves();
 

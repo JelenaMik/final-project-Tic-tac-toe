@@ -1,6 +1,7 @@
 package com.company;
 
 import java.sql.Array;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Matrix{
@@ -146,15 +147,14 @@ public class Matrix{
 
     //method to set correct value in Zero matrix
     public void setValue(int n){
-        int value= 0;
-        do{
-            int field = enterField();
-            value=field;
-        }while(fieldChecker(value)!=true) ;
-
-
+//        int value= 0;
+//        do{
+//            int field = enterField();
+//            value=field;
+//        }while(fieldChecker(value)!=true) ;
+        int value = playerField();
         if (value<4){
-             numberArray[0][value-1]=n;
+            numberArray[0][value-1]=n;
         }
         else if (value <7){
             numberArray[1][value-4]=n;
@@ -162,7 +162,50 @@ public class Matrix{
         else{
             numberArray[2][value-7]=n;
         }
+
     }
+
+
+    public void setComputerValue(int n){
+//        int value= 0;
+//        do{
+//            int field = enterField();
+//            value=field;
+//        }while(fieldChecker(value)!=true) ;
+        int value = computerField();
+        if (value<4){
+            numberArray[0][value-1]=n;
+        }
+        else if (value <7){
+            numberArray[1][value-4]=n;
+        }
+        else{
+            numberArray[2][value-7]=n;
+        }
+
+    }
+
+
+    public int playerField(){
+        int value = 0;
+        do{
+            int field = enterField();
+            value=field;
+        }while(fieldChecker(value)!=true) ;
+        return value;
+    }
+
+
+
+    public int computerField(){
+        int value = 0;
+        do{
+            int field = computerMove();
+            value=field;
+        }while(fieldChecker(value)!=true) ;
+        return value;
+    }
+
 
     //method to check if entered field is empty
     public boolean fieldChecker(int field){
@@ -190,6 +233,15 @@ public class Matrix{
         return false;
     }
 
+
+    public int computerMove(){
+        Random random  = new Random();
+        int number = 9;
+        int field = random.nextInt(9)+1;
+        System.out.println("Datora izvele" + field);
+        return field;
+
+    }
 
 
 }

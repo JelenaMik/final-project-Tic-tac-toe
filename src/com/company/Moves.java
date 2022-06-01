@@ -37,11 +37,13 @@ public class Moves  extends Matrix{
             n= (int) Math.pow(-1, movesCount)*value;
             if (n>0){
                 System.out.println("1. Player's move");
+                setValue(n);
             }else {
-                System.out.println("2. Player's move");
+                System.out.println("Computer's move");
+                setComputerValue(n);
             }
 
-            setValue(n);
+//            setValue(n);
             matrixMovesOutput();
 
             temporary = countSumMainDiagonal();
@@ -62,7 +64,7 @@ public class Moves  extends Matrix{
 
             else if (emptyFieldChecker()==false){
                 sum=5;
-                System.out.println("Draw!");
+                System.out.println("Drawn!");
             }
 
         }while(sum==0);

@@ -19,8 +19,7 @@ public class Matrix{
             for (int j=0; j<3; ++j){
                 ++count;
                 numberMovesArray[i][j]=count;
-            }
-        }
+            }}
     }
 
     // print 1-9 matrix
@@ -29,8 +28,7 @@ public class Matrix{
             for (int j=0; j<3; j++){
                 System.out.print(numberMovesArray[i][j] + " ");
             }
-            System.out.println();
-        }
+            System.out.println();}
     }
 
     //generates matrix to work with
@@ -38,8 +36,7 @@ public class Matrix{
         for (int i=0; i<3; i++){
             for (int j=0; j<3; j++){
                 numberArray[i][j]=0;
-            }
-        }
+            }}
     }
 
     //method for Zero matrix output
@@ -48,10 +45,8 @@ public class Matrix{
             for (int j=0; j<3; j++){
                 System.out.print(numberArray[i][j] + "  ");
             }
-            System.out.println();
-        }
+            System.out.println();}
     }
-
 
     //method for x and o matrix output
     public void matrixMovesOutput(){
@@ -63,8 +58,7 @@ public class Matrix{
                     System.out.print("x ");
                 }if (numberArray[i][j]==(-1)){
                     System.out.print("o ");
-                }
-            }
+                }}
             System.out.println();
         }
     }
@@ -73,17 +67,13 @@ public class Matrix{
     public int countSumRows(){
         int sum=0;
         for(int i = 0; i<3; i++){
-
             int sumTemporary=0;
             for (int j=0; j<3; j++){
                 sumTemporary = sumTemporary + numberArray[i][j];
             }
-
             if (Math.abs(sum)<Math.abs(sumTemporary)){
-                //sum=Math.abs(sumTemporary);
                 sum=sumTemporary;
-             }
-        }
+             }}
         return sum;
     }
 
@@ -91,17 +81,13 @@ public class Matrix{
     public int countSumColumns(){
         int sum=0;
         for(int i = 0; i<3; i++){
-
             int sumTemporary=0;
             for (int j=0; j<3; j++){
-
                 sumTemporary = sumTemporary + numberArray[j][i];
             }
             if (Math.abs(sum)<Math.abs(sumTemporary)){
-//                sum=Math.abs(sumTemporary);
                 sum=sumTemporary;
-            }
-        }
+            }}
         return sum;
     }
 
@@ -109,14 +95,10 @@ public class Matrix{
     public int countSumMainDiagonal(){
         int sum=0;
         for(int i = 0; i<3; i++){
-
             for (int j=0; j<3; j++){
                 if (i==j){
                     sum = sum + numberArray[j][i];
-                }
-            }
-
-        }
+                }}}
         return sum;
     }
 
@@ -124,15 +106,10 @@ public class Matrix{
     public int countSumAdjDiagonal(){
         int sum=0;
         for(int i = 0; i<3; i++){
-
-
             for (int j=0; j<3; j++){
                 if (i+j==2){
                     sum = sum + numberArray[j][i];
-                }
-            }
-
-        }
+                }}}
         return sum;
     }
 
@@ -144,14 +121,9 @@ public class Matrix{
         return field;
     }
 
-
     //method to set correct value in Zero matrix
     public void setValue(int n){
-//        int value= 0;
-//        do{
-//            int field = enterField();
-//            value=field;
-//        }while(fieldChecker(value)!=true) ;
+
         int value = playerField();
         if (value<4){
             numberArray[0][value-1]=n;
@@ -162,16 +134,9 @@ public class Matrix{
         else{
             numberArray[2][value-7]=n;
         }
-
     }
 
-
     public void setComputerValue(int n){
-//        int value= 0;
-//        do{
-//            int field = enterField();
-//            value=field;
-//        }while(fieldChecker(value)!=true) ;
         int value = computerField();
         if (value<4){
             numberArray[0][value-1]=n;
@@ -182,9 +147,20 @@ public class Matrix{
         else{
             numberArray[2][value-7]=n;
         }
-
     }
 
+    public void setHardComputerValue(int n){
+        int value = calculateField();
+        if (value<4){
+            numberArray[0][value-1]=n;
+        }
+        else if (value <7){
+            numberArray[1][value-4]=n;
+        }
+        else{
+            numberArray[2][value-7]=n;
+        }
+    }
 
     public int playerField(){
         int value = 0;
@@ -195,8 +171,6 @@ public class Matrix{
         return value;
     }
 
-
-
     public int computerField(){
         int value = 0;
         do{
@@ -205,7 +179,6 @@ public class Matrix{
         }while(fieldChecker(value)!=true) ;
         return value;
     }
-
 
     //method to check if entered field is empty
     public boolean fieldChecker(int field){
@@ -227,21 +200,114 @@ public class Matrix{
             for (int j=0; j<3; j++){
                 if (numberArray[i][j]==0){
                     return true;
-                }
-            }
-        }
+                }}}
         return false;
     }
-
 
     public int computerMove(){
         Random random  = new Random();
         int number = 9;
         int field = random.nextInt(9)+1;
-        System.out.println("Datora izvele" + field);
         return field;
 
     }
+
+    public int sumRows(){
+
+        //int sum=0;
+        int row = 10;
+        for(int i = 0; i<3; i++){
+            int sumTemporary=0;
+            for (int j=0; j<3; j++){
+                sumTemporary = sumTemporary + numberArray[i][j];
+            }
+            if (Math.abs(sumTemporary)==2){
+                row=i;
+            }}
+        return row;
+    }
+
+    public int sumColumns(){
+        int column = 10;
+        for(int i = 0; i<3; i++){
+            int sumTemporary=0;
+            for (int j=0; j<3; j++){
+                sumTemporary = sumTemporary + numberArray[j][i];
+            }
+            if (Math.abs(sumTemporary)==2){
+                column=i;
+            }}
+        return column;
+    }
+
+    public int sumMainDiagonal(){
+        int sum=10;
+        for(int i = 0; i<3; i++){
+            for (int j=0; j<3; j++){
+                if (i==j){
+                    sum = sum + numberArray[j][i];
+                }}}
+        return sum;
+    }
+
+    public int sumAdjDiagonal(){
+        int sum=10;
+        for(int i = 0; i<3; i++){
+            for (int j=0; j<3; j++){
+                if (i+j==2){
+                    sum = sum + numberArray[j][i];
+                }}}
+        return sum;
+    }
+
+    public int calculateField(){
+        int field = 0;
+        int row =sumRows();
+        int column = sumColumns();
+        int mainDiagonal = sumMainDiagonal();
+        int adjDiagonal = sumAdjDiagonal();
+        if (row<5){
+            for(int i=0; i<3; i++){
+                if (numberArray[row][i]==0){
+                    field = i+3*row+1;
+                }}
+            return field;
+        }
+        else if (column<5){
+            for(int i=0; i<3; i++){
+                if (numberArray[i][column]==0){
+                    field = column+3*i+1;
+                }}
+            return field;
+        }
+        else if (mainDiagonal==2 || mainDiagonal==-2){
+            for(int i=0; i<3; i++){
+                if (numberArray[i][i]==0){
+                    field = i+3*i+1;
+                }}
+            return field;
+        }
+        else if (adjDiagonal==2 || adjDiagonal==-2){
+            for(int i=0; i<3; i++){
+                for (int j=0; j<3; j++){
+                    if (i+j==2 && numberArray[i][j]==0){
+                        field = j+3*i+1;
+                    }}}return field;
+        }
+
+        else if (numberArray[1][1]==0){return 5;}
+        else if (numberArray[0][0]==0){return 1;}
+        else if (numberArray[0][2]==0){return 3;}
+        else if (numberArray[2][0]==0){return 7;}
+        else if (numberArray[2][2]==0){return 9;}
+        else if(numberArray[0][1]==0){return 2;}
+        else if(numberArray[1][0]==0){return 4;}
+        else if(numberArray[1][2]==0){return 6;}
+        else if(numberArray[2][1]==0){return 8;}
+        else{return 0;}
+
+    }
+
 
 
 }

@@ -16,13 +16,6 @@ public class Main {
 
         Moves move = new Moves();
 
-//        if (move.firstMove() == 1) {
-//            System.out.println("The first move is your!");
-//        } else {
-//            System.out.println("Computer makes the first move!");
-//        }
-
-
         move.game();
 
 

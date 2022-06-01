@@ -8,6 +8,7 @@ public class Moves  extends Matrix{
 
     int player =0;
 
+    //method to randomly choose a first player
     public int firstMove(){
         Random random  = new Random();
         int firstPlayer = random.nextInt()%2;
@@ -21,6 +22,7 @@ public class Moves  extends Matrix{
         return firstPlayer;
     }
 
+    //method for one single game
     public void game(){
 
         int value = firstMove();
@@ -40,34 +42,28 @@ public class Moves  extends Matrix{
             }
 
             setValue(n);
-            //matrixMovesOutput();
+            matrixMovesOutput();
             matrixZeroOutput();
 
             temporary = countSumMainDiagonal();
-            //System.out.println("GD " + temporary);
             if (temporary==3 || temporary==-3){sum=temporary;}
             temporary=countSumAdjDiagonal();
-            //System.out.println("AD " + temporary);
             if (temporary==3 || temporary==-3){sum=temporary;}
             temporary = countSumColumns();
-            //System.out.println("Columns " + temporary);
             if (temporary==3 || temporary==-3){sum=temporary;}
-            //System.out.println("Summa " + sum);
             temporary = countSumRows();
-            //System.out.println("Rows " + temporary);
             if (temporary==3 || temporary==-3){sum=temporary;}
-            //System.out.println("Summa " + sum);
 
         }while(sum==0);
+        if (sum==3){
+            System.out.println("First player won!");
+        }
+        if (sum==-3){
+            System.out.println("Second player won!");
+        }
 
-        System.out.println("Kāds uzvarēja");
 
     }
-
-
-
-
-
 
 }
 

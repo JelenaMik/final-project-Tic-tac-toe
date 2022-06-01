@@ -41,6 +41,7 @@ public class Matrix{
         }
     }
 
+    //method for Zero matrix output
     public void matrixZeroOutput(){
         for (int i=0; i<3; ++i){
             for (int j=0; j<3; ++j){
@@ -51,7 +52,7 @@ public class Matrix{
     }
 
 
-
+    //method for x and o matrix output
     public void matrixMovesOutput(){
         for (int i=0; i<3; i++){
             for (int j=0; j<3; j++){
@@ -67,6 +68,7 @@ public class Matrix{
         }
     }
 
+    //method for row sum counting
     public int countSumRows(){
         int sum=0;
         for(int i = 0; i<3; i++){
@@ -84,6 +86,7 @@ public class Matrix{
         return sum;
     }
 
+    //method for column sum counting
     public int countSumColumns(){
         int sum=0;
         for(int i = 0; i<3; i++){
@@ -101,6 +104,7 @@ public class Matrix{
         return sum;
     }
 
+    //method for Main Diagonal sum counting
     public int countSumMainDiagonal(){
         int sum=0;
         for(int i = 0; i<3; i++){
@@ -115,6 +119,7 @@ public class Matrix{
         return sum;
     }
 
+    //method for Adj diagonal sum counting
     public int countSumAdjDiagonal(){
         int sum=0;
         for(int i = 0; i<3; i++){
@@ -130,6 +135,7 @@ public class Matrix{
         return sum;
     }
 
+    //method to get a field number from the user
     public int enterField(){
         System.out.println("Enter the number of field!");
         Scanner scanner = new Scanner(System.in);
@@ -138,18 +144,41 @@ public class Matrix{
     }
 
 
-
+    //method to set correct value in Zero matrix
     public void setValue(int n){
-        int field = enterField();
-        if (field<4){
-            numberArray[0][field-1]=n;
+        int value= 0;
+        do{
+            int field = enterField();
+            value=field;
+        }while(fieldChecker(value)!=true) ;
+
+
+        if (value<4){
+             numberArray[0][value-1]=n;
         }
-        else if (field<7){
-            numberArray[1][field-4]=n;
+        else if (value <7){
+            numberArray[1][value-4]=n;
         }
-        else {
-            numberArray[2][field-7]=n;
+        else{
+            numberArray[2][value-7]=n;
         }
     }
+
+    //method to check if entered field is empty
+    public boolean fieldChecker(int field){
+
+            if(field<4 && numberArray[0][field-1]==0){
+                return true;
+            }
+            else if (4<field && field<7 && numberArray[1][field-4]==0){
+                return true;
+            }
+            else if(field>7 && numberArray[2][field-7]==0){
+                return true;
+            }
+         return false;
+    }
+
+
 
 }

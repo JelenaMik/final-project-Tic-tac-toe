@@ -183,7 +183,7 @@ public class Matrix{
     //method to check if entered field is empty
     public boolean fieldChecker(int field){
 
-            if(field<4 && numberArray[0][field-1]==0){
+            if(field>0 && field<4 && numberArray[0][field-1]==0){
                 return true;
             }
             else if (4<=field && field<7 && numberArray[1][field-4]==0){
@@ -195,6 +195,7 @@ public class Matrix{
          return false;
     }
 
+   //method to check if there are any empty field in the matrix
     public boolean emptyFieldChecker(){
         for (int i=0; i<3; i++){
             for (int j=0; j<3; j++){

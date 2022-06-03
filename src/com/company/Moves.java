@@ -21,9 +21,12 @@ public class Moves  extends Matrix{
         return firstPlayer;
     }
 
+
+
     //method for one single game
+
     public void game(){
-        System.out.println("Who you want to play with? 1 - computer easy level; 2 - computer medium level; 3 - another player");
+        System.out.println("Who you want to play with? 1 - computer easy level; 2 - computer medium level; press any other key - another player");
         int player = scanner.nextInt();
         int value = firstMove();
 

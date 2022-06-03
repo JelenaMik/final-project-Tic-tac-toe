@@ -136,6 +136,7 @@ public class Matrix{
         }
     }
 
+    // set values in Zero matrix after a computer easy move
     public void setComputerValue(int n){
         int value = computerField();
         if (value<4){
@@ -149,6 +150,7 @@ public class Matrix{
         }
     }
 
+    // set values in Zero matrix after a computer medium move
     public void setHardComputerValue(int n){
         int value = calculateField();
         if (value<4){
@@ -162,6 +164,7 @@ public class Matrix{
         }
     }
 
+    //method asks Player to enter a field value as long as empty field is entered
     public int playerField(){
         int value = 0;
         do{
@@ -171,6 +174,7 @@ public class Matrix{
         return value;
     }
 
+    //method asks computer to enter a field value as long as empty field is entered
     public int computerField(){
         int value = 0;
         do{
@@ -205,6 +209,7 @@ public class Matrix{
         return false;
     }
 
+    //method generates random field for easy level
     public int computerMove(){
         Random random  = new Random();
         int number = 9;
@@ -213,8 +218,8 @@ public class Matrix{
 
     }
 
+    //method scan if there is a row wit sum == 2 or sum==-2, returns a row number if there are
     public int sumRows(){
-
         //int sum=0;
         int row = 10;
         for(int i = 0; i<3; i++){
@@ -228,6 +233,7 @@ public class Matrix{
         return row;
     }
 
+    //method scan if there is a column wit sum == 2 or sum==-2, returns a column number if there are
     public int sumColumns(){
         int column = 10;
         for(int i = 0; i<3; i++){
@@ -241,6 +247,7 @@ public class Matrix{
         return column;
     }
 
+    ////method returns a sum of main diagonal elements
     public int sumMainDiagonal(){
         int sum=10;
         for(int i = 0; i<3; i++){
@@ -251,6 +258,7 @@ public class Matrix{
         return sum;
     }
 
+    //method returns a sum of adjacent diagonal elements
     public int sumAdjDiagonal(){
         int sum=10;
         for(int i = 0; i<3; i++){
@@ -261,6 +269,7 @@ public class Matrix{
         return sum;
     }
 
+    //method to choose a field value for computer medium level
     public int calculateField(){
         int field = 0;
         int row =sumRows();

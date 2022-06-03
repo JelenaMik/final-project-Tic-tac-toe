@@ -18,6 +18,35 @@ public class Main {
         int i = 0;
 
 
+        do {
+            Matrix matrix = new Matrix();
+            Moves move = new Moves();
+            i++;
+            if (i>1){
+                System.out.println();
+                System.out.println("""
+                Do you want to play another game?
+                1. Yes
+                2. No 
+                """);
+            } else{
+                System.out.println("Press 1 to start!");
+            }
+
+            input = scanner.nextLine();
+            switch (input){
+                case "1":
+                    matrix.matrixZeroGeneration();
+                    matrix.matrixZeroOutput();
+                    move.game();
+                    break;
+                default:
+                    System.out.println("Please enter a valid input!");
+                    break;
+            }
+
+        }while(!input.equalsIgnoreCase("2"));
+
     }
 }
 
